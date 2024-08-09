@@ -4,80 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9; /* Light grayish background */
-            color: #333; /* Dark text */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            box-sizing: border-box; /* Ensure padding and border are included in the element's width */
-        }
-
-        h2 {
-            color: #de004b; /* Pinkish red color */
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-            color: #333; /* Dark text */
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        select,
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Include padding and border in the element's width */
-        }
-
-        input[type="submit"] {
-            background-color: #de004b; /* Pinkish red color */
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #c50040; /* Darker pinkish red on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="form-container">
+        <!-- Logo Image -->
+        <img src="https://www.shejobs.foundation/wp-content/uploads/2024/02/she_new_logo-removebg-preview.png?x19799" 
+             alt="SHE Jobs Logo" class="form-logo">
+
         <h2>Contact Information</h2>
         <form>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
 
             <label for="phone">Phone #</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" required 
+                   pattern="^\d{10}$" 
+                   title="Please enter a valid 10-digit phone number">
 
             <label for="email">Email ID</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required 
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                   title="Please enter a valid email address">
 
             <label for="location">Location</label>
             <input type="text" id="location" name="location" required>
@@ -99,17 +47,6 @@
         </form>
     </div>
 
-    <script>
-        function handleEducationChange(selectElement) {
-            var otherEducationInput = document.getElementById('other-education');
-            if (selectElement.value === 'other') {
-                otherEducationInput.style.display = 'block';
-                otherEducationInput.required = true;
-            } else {
-                otherEducationInput.style.display = 'none';
-                otherEducationInput.required = false;
-            }
-        }
-    </script>
 </body>
 </html>
+
